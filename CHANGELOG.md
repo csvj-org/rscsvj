@@ -24,3 +24,6 @@ then breaking changes may occur in any release.
   `tests/parse.rs` and `tests/stringify.rs`; all 25 vectors of
   `csvj-org/conformance@master` pass when run via the
   `CSVJ_CONFORMANCE_DIR` env var.
+- CI job that runs the `csvj-org/conformance@master` suite on every
+  push and PR: checks out conformance alongside rscsvj and runs
+  `cargo test --test conformance` with `CSVJ_CONFORMANCE_DIR` set.
