@@ -1,0 +1,15 @@
+[package]
+name = "rscsvj"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.74"
+description = "Reader and writer for CSVJ files (https://csvj.org)"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/csvj-org/rscsvj"
+homepage = "https://csvj.org"
+documentation = "https://docs.rs/rscsvj"
+keywords = ["csvj", "csv", "json", "tabular"]
+categories = ["encoding", "parser-implementations"]
+readme = "README.md"
+
+[dependencies]
