@@ -16,6 +16,11 @@ then breaking changes may occur in any release.
 - Public surface: `rscsvj::parse(&str) -> Result<Table, ParseError>` and
   `rscsvj::stringify(&Table) -> Result<String, WriteError>`, with
   `Table`, `Value`, `ParseError`, and `WriteError` re-exported.
-  Both functions are placeholders that return a "not yet implemented"
-  error so consumers can pin against the public surface before the
-  reader/writer lands (PLAN §7b.2).
+- Reader and writer implementations with strict §1 enforcement from day
+  one: empty input rejected, missing trailing newline rejected, ragged
+  rows rejected, duplicate header names rejected (both reader and
+  writer), value tokens validated against RFC 8259 via `serde_json`,
+  non-finite numbers rejected by the writer. 47 unit tests across
+  `tests/parse.rs` and `tests/stringify.rs`; all 25 vectors of
+  `csvj-org/conformance@master` pass when run via the
+  `CSVJ_CONFORMANCE_DIR` env var.

@@ -14,10 +14,10 @@ PHP reference at [csvj-org/phpcsvj](https://github.com/csvj-org/phpcsvj),
 and the language-agnostic conformance suite at
 [csvj-org/conformance](https://github.com/csvj-org/conformance).
 
-The reader will enforce every §1 rule (empty input rejected; trailing
+The reader enforces every §1 rule (empty input rejected; trailing
 newline required; ragged rows rejected; duplicate header names
 rejected; only `String | Number | Bool | Null` permitted at value
-position; JSON lexical rules per RFC 8259) and pass all 25 vectors of
+position; JSON lexical rules per RFC 8259) and passes all 25 vectors of
 `csvj-org/conformance@master`.
 
 ## Parse
@@ -59,13 +59,6 @@ assert_eq!(bytes, "\"name\",\"age\"\n\"alice\",30\n\"bob\",null\n");
 The output is always spec-compliant CSVJ: terminated by `\n`, every row
 has exactly `table.header.len()` values, and every value is encoded as
 a JSON literal.
-
-## Status
-
-`parse` and `stringify` are currently placeholders that return
-`Err("not yet implemented")`. The public surface (types and signatures)
-is stable so consumers can pin against it before the reader/writer
-implementation lands (PLAN §7b.2).
 
 ## Install
 
